@@ -8,4 +8,5 @@
         #- run: echo "hello world" # run the `echo` command
         - run: ./installMaster.sh
         #- run: ansible --version
+        - run: mkdir -p ~/ssh; ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
         - run: cd ~/ncscli/examples/loadtest; ./runDistributedLoadtest.py  "https://d1ki6ltcdxd6oo.cloudfront.net" 54.70.217.132 --nWorkers 11 --usersPerWorker 7 --startTimeLimit 45  --susTime 30 --rampUpRate 1 --launch true --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
