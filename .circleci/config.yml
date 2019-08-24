@@ -6,4 +6,5 @@
       steps:
         - checkout # check out the code in the project directory
         - run: python3 --version
+        - run: pip3 --version
         #- run: echo "hello world" # run the `echo` command
