@@ -5,6 +5,6 @@
         - image: circleci/python:3.6.8 # the primary container, where your job's commands are run
       steps:
         - checkout # check out the code in the project directory
-        - run: python3 --version
-        - run: ./installMaster.sh
         #- run: echo "hello world" # run the `echo` command
+        - run: ./installMaster.sh
+        - run: ansible --version
