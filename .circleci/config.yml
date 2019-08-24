@@ -6,7 +6,10 @@
       steps:
         - checkout # check out the code in the project directory
         #- run: echo "hello world" # run the `echo` command
+        - add_ssh_keys:
+          fingerprints:
+            - "44:37:c6:6a:56:c4:07:b5:ea:54:11:3f:63:3d:9c:f6"
         - run: ./installMaster.sh
         #- run: ansible --version
-        - run: mkdir -p ~/ssh; ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+        #- run: mkdir -p ~/ssh; ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
         - run: cd ~/ncscli/examples/loadtest; ./runDistributedLoadtest.py  "https://d1ki6ltcdxd6oo.cloudfront.net" 54.70.217.132 --nWorkers 11 --usersPerWorker 7 --startTimeLimit 45  --susTime 30 --rampUpRate 1 --launch true --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
