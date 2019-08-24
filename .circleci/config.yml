@@ -2,7 +2,8 @@
   jobs:
     build:
       docker: 
-        - image: circleci/python:3.6.8 # the primary container, where your job's commands are run
+        #- image: circleci/python:3.6.8 # the primary container, where your job's commands are run
+        - image: circleci/mongo:4.1-bionic
       steps:
         - checkout # check out the code in the project directory
         #- run: echo "hello world" # run the `echo` command
