@@ -15,4 +15,5 @@
         - run: ./installMaster.sh
         #- run: ansible --version
         #- run: mkdir -p ~/ssh; ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
-        - run: cd ~/ncscli/examples/loadtest; ./runDistributedLoadtest.py  "https://codero2.neocortix.com" `curl ipinfo.io/ip` --nWorkers 11 --usersPerWorker 7 --startTimeLimit 45  --susTime 30 --rampUpRate 1 --launch true --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
+        #- run: cd ~/ncscli/examples/loadtest; ./runDistributedLoadtest.py  "https://codero2.neocortix.com" `curl ipinfo.io/ip` --nWorkers 9 --usersPerWorker 7 --startTimeLimit 45  --susTime 30 --rampUpRate 1 --launch true --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
+        - run: ./testLtService.py https://codero2.neocortix.com --jsonOut testLtService_out.json --masterUrl  https://load-test.cloud.neocortix.com/ --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
