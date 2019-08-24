@@ -7,4 +7,5 @@
         - checkout # check out the code in the project directory
         #- run: echo "hello world" # run the `echo` command
         - run: ./installMaster.sh
-        - run: ansible --version
+        #- run: ansible --version
+        - run: cd ~/ncscli/examples/loadtest; ./runDistributedLoadtest.py  "https://d1ki6ltcdxd6oo.cloudfront.net" 54.70.217.132 --nWorkers 11 --usersPerWorker 7 --startTimeLimit 45  --susTime 30 --rampUpRate 1 --launch true --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
