@@ -9,6 +9,7 @@
         - add_ssh_keys:
             fingerprints:
               - "44:37:c6:6a:56:c4:07:b5:ea:54:11:3f:63:3d:9c:f6"
+        - run: cp cci_id_rsa.pub ~/.ssh/id_rsa.pub
 
         - run: ./installMaster.sh
         #- run: ansible --version
