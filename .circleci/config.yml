@@ -2,19 +2,8 @@
   jobs:
     build:
       docker: 
-        - image: circleci/python:3.6.8 # the primary container, where your job's commands are run
+        - image: circleci/python:3.6 # the primary container, where your job's commands are run
       steps:
         - checkout # check out the code in the project directory
-        #- run: echo "hello world" # run the `echo` command
-        - add_ssh_keys:
-            fingerprints:
-              - "44:37:c6:6a:56:c4:07:b5:ea:54:11:3f:63:3d:9c:f6"
-
-        - run: cp cci_id_rsa.pub ~/.ssh/id_rsa.pub
-
-        #- run: ./installMaster.sh
-        #- run: ansible --version
-        #- run: mkdir -p ~/ssh; ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
-        #- run: cd ~/ncscli/examples/loadtest; ./runDistributedLoadtest.py  "https://codero2.neocortix.com" `curl ipinfo.io/ip` --nWorkers 9 --usersPerWorker 7 --startTimeLimit 45  --susTime 30 --rampUpRate 1 --launch true --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
-        #- run: ./testLtService.py https://codero2.neocortix.com --jsonOut testLtService_out.json --masterUrl  https://load-test.cloud.neocortix.com/ --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
-        - run: ./runRemoteLoadtest.py https://codero2.neocortix.com --nWorkers 9 --jsonOut testLtService_out.json --masterUrl  https://load-test.cloud.neocortix.com/ --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
+        - run: python3 --version
+        - run: ./runRemoteLoadtest.py https://codero2.neocortix.com --nWorkers 9 --jsonOut loadtest_out.json --masterUrl  https://load-test.cloud.neocortix.com/ --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
