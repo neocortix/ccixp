@@ -68,7 +68,7 @@ if __name__ == "__main__":
     logger.info( '/api/tests/ json %s', resp.json() )
 
     # set params for tests
-    nWorkers = 3
+    nWorkers = 100
     startTimeLimit = 30
     susTime = 30
     usersPerWorker = 6
