@@ -1,4 +1,13 @@
   version: 2.1
+  commands:
+      loadtest:
+        description: "run a Neocortix loadtest"
+        parameters:
+          nWorkers:
+            type: integer
+            default: 1
+        steps:
+          - run: echo loadtesting << parameters.nWorkers >>
   jobs:
     build:
       docker: 
@@ -6,4 +15,7 @@
       steps:
         - checkout # check out the code in the project directory
         - run: python3 --version
-        - run: ./runRemoteLoadtest.py https://codero2.neocortix.com --nWorkers 3 --jsonOut loadtest_out.json --masterUrl  https://load-test.cloud.neocortix.com/ --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
+        #- run: ./runRemoteLoadtest.py https://codero2.neocortix.com --nWorkers 3 --jsonOut loadtest_out.json --masterUrl  https://load-test.cloud.neocortix.com/ --authToken "VnvnwNggQz7NDEeMJQQmDfdS85Jjzs4g"
+        - loadtest:
+            nWorkers: 4
+        
