@@ -50,6 +50,7 @@ if __name__ == "__main__":
     ap.add_argument('--jsonOut', help='file path to write detailed info in json format')
     ap.add_argument( '--masterUrl', default='http://localhost', help='url of the master' )
     ap.add_argument( '--nConcurrent', type=int, default=1, help='number of concurrent tests' )
+    ap.add_argument( '--nWorkers', type=int, default=1, help='the # of worker instances to launch (or zero for all available)' )
     args = ap.parse_args()
 
     masterUrl = args.masterUrl
@@ -68,7 +69,7 @@ if __name__ == "__main__":
     logger.info( '/api/tests/ json %s', resp.json() )
 
     # set params for tests
-    nWorkers = 100
+    nWorkers = args.nWorkers
     startTimeLimit = 30
     susTime = 30
     usersPerWorker = 6
