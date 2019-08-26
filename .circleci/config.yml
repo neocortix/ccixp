@@ -23,4 +23,4 @@
         #- loadtest:
         #    nWorkers: 3
         - ncsorb2/greet:
-          greeting: "good day"
+            greeting: "good day"
