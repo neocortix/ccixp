@@ -11,5 +11,6 @@
         - run: python3 --version
 
         - ncsorb2/loadtest:
+            targetHostUrl: "htttps://codero2.neocortix.com"
             nWorkers: 3
         - run: ls -al
