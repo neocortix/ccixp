@@ -12,3 +12,4 @@
 
         - ncsorb2/loadtest:
             nWorkers: 3
+        - run: ls -al
