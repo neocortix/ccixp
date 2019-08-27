@@ -8,9 +8,8 @@
         - image: circleci/python:3.6 # the primary container, where your job's commands are run
       steps:
         - checkout # check out the code in the project directory
-        - run: python3 --version
 
         - ncsorb2/loadtest:
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 3
-        - run: ls -al
+            susTime: 12
