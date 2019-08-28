@@ -12,4 +12,4 @@
         - ncsorb2/loadtest:
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 9
-            susTime: 120
+            susTime: 30
