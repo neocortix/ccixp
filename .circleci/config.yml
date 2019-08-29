@@ -11,6 +11,6 @@
         - checkout # check out the code in the project directory
 
         - ncsorb2/loadtest:
-            targetHostUrl: "https://codero2.neocortix.com"
+            targetHostUrl: "httpsXXX://codero2.neocortix.com"
             nWorkers: 3
             susTime: 30
