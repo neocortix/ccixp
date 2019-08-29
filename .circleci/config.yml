@@ -10,7 +10,7 @@
       steps:
         - checkout # check out the code in the project directory
         - run: echo would BUILD code here
-    test:
+    testXXX:
       docker:
         - image: circleci/python:3.6 # the primary container, where your job's commands are run
       steps:
@@ -25,6 +25,9 @@
     build_and_test:
       jobs:
         - build
-        - test:
+        - ncsorb2/loadtest:
             requires:
               - build
+            targetHostUrl: "https://codero2.neocortix.com"
+            nWorkers: 3
+            susTime: 30
