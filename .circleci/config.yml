@@ -28,6 +28,9 @@
         - ncsorb2/loadtest:
             requires:
               - build
+            branch: Alpha
             targetHostUrl: "https://codero2.neocortix.com"
-            nWorkers: 3
-            susTime: 30
+            nWorkers: 30
+            rampUpRate: "1"
+            usersPerWorker: 7
+            susTime: 240
