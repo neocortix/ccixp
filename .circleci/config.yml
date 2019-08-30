@@ -10,7 +10,7 @@
       steps:
         - checkout # check out the code in the project directory
         - run: echo would BUILD code here
-    testXXX:
+    testXXXX:
       docker:
         - image: circleci/python:3.6 # the primary container, where your job's commands are run
       steps:
