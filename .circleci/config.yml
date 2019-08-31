@@ -1,7 +1,7 @@
   version: 2.1
   orbs:
-    ncsorb2: neocortix/ncsorb2@dev:alpha
-    #ncsorb2: neocortix/ncsorb2@volatile
+    #ncsorb2: neocortix/ncsorb2@dev:alpha
+    ncsorb2: neocortix/ncsorb2@volatile
   
   jobs:
     build:
