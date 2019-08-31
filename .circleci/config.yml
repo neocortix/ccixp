@@ -31,9 +31,9 @@
             branch: Alpha
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 30
-            rampUpRate: "1"
+            rampUpRate: "2"
             usersPerWorker: 7
-            susTime: 240
+            susTime: 120
             targetUris: >-
               /index.html
-              /favicon.html
+              /favicon.ico
