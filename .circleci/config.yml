@@ -35,7 +35,7 @@
             regions: >-
               north-america russia-ukraine-belarus
             usersPerWorker: 7
-            susTime: 120
+            susTime: 300
             targetUris: >-
               /index.html
               /favicon.ico
