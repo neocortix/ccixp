@@ -1,7 +1,7 @@
   version: 2.1
   orbs:
-    #ncsorb2: neocortix/ncsorb2@dev:alpha
-    ncsorb2: neocortix/ncsorb2@volatile
+    #myOrb: neocortix/loadtest@dev:alpha
+    myOrb: neocortix/loadtest@volatile
   
   jobs:
     build:
@@ -16,7 +16,7 @@
       steps:
         - checkout # check out the code in the project directory
 
-        - ncsorb2/loadtest:
+        - myOrb/loadtest:
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 3
             susTime: 30
@@ -25,7 +25,7 @@
     build_and_test:
       jobs:
         #- build
-        - ncsorb2/loadtest:
+        - myOrb/loadtest:
             #requires:
             #  - build
             #branch: Alpha
