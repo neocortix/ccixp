@@ -13,7 +13,7 @@
 
     badCmdJob:
       docker:
-        - image: circleci/node:10
+        - image: circleci/node:8
       steps:
         - myOrb/loadtest:
             targetHostUrl: "https://codero2.neocortix.com"
