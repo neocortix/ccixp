@@ -35,7 +35,7 @@
         #- goodCmdJob
         #- badCmdJob
         - myOrb/loadtest:
-            requires:
+            #requires:
               #- build
               #- goodCmdJob
               #- badCmdJob
