@@ -19,9 +19,9 @@
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 3
             susTime: 30
-    testXXX:
+    goodCmdJob:
       docker:
-        - image: circleci/python:3.6 # the primary container, where your job's commands are run
+        - image: circleci/python:3.6
       steps:
         - checkout # check out the code in the project directory
 
@@ -34,11 +34,13 @@
     build_and_test:
       jobs:
         #- build
-        - badCmdJob
+        - goodCmdJob
+        #- badCmdJob
         - myOrb/loadtest:
             requires:
               #- build
-              - badCmdJob
+              - goodCmdJob
+              #- badCmdJob
             #branch: Alpha
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 3
