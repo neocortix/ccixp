@@ -10,28 +10,28 @@
       steps:
         - checkout # check out the code in the project directory
         - run: echo would BUILD code here
-        - run: |
-            #!/bin/bash
+        - run:
+            name: checking for required python version
+            command: |
+                targetVersion="3.6"
+                errMsg="python $targetVersion is not available in this environment"
 
-            targetVersion="3.6"
-            errMsg="python $targetVersion is not available in this environment"
+                if ! hash python3; then
+                    echo  $errMsg
+                    exit 1
+                fi
 
-            if ! hash python3; then
-                echo  $errMsg
+                pyVersion="$(python3 -V 2>&1)"
+                echo $pyVersion
+
+                if [[ $pyVersion =~ $targetVersion ]]
+                then
+                    echo found $pyVersion
+                    exit 0
+                else
+                    echo $errMsg
+                fi
                 exit 1
-            fi
-
-            pyVersion="$(python3 -V 2>&1)"
-            echo $pyVersion
-
-            if [[ $pyVersion =~ $targetVersion ]]
-            then
-                echo found $pyVersion
-                exit 0
-            else
-                echo $errMsg
-            fi
-            exit 1
 
     testXXX:
       docker:
@@ -49,8 +49,8 @@
       jobs:
         - build
         - myOrb/loadtest:
-            #requires:
-            #  - build
+            requires:
+              - build
             #branch: Alpha
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 3
