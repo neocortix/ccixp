@@ -10,6 +10,29 @@
       steps:
         - checkout # check out the code in the project directory
         - run: echo would BUILD code here
+        - run: |
+            #!/bin/bash
+
+            targetVersion="3.6"
+            errMsg="python $targetVersion is not available in this environment"
+
+            if ! hash python3; then
+                echo  $errMsg
+                exit 1
+            fi
+
+            pyVersion="$(python3 -V 2>&1)"
+            echo $pyVersion
+
+            if [[ $pyVersion =~ $targetVersion ]]
+            then
+                echo found $pyVersion
+                exit 0
+            else
+                echo $errMsg
+            fi
+            exit 1
+
     testXXX:
       docker:
         - image: circleci/python:3.6 # the primary container, where your job's commands are run
@@ -24,18 +47,18 @@
     version: 2
     build_and_test:
       jobs:
-        #- build
+        - build
         - myOrb/loadtest:
             #requires:
             #  - build
             #branch: Alpha
             targetHostUrl: "https://codero2.neocortix.com"
-            nWorkers: 30
+            nWorkers: 3
             rampUpRate: "2"
             regions: >-
               north-america russia-ukraine-belarus
             usersPerWorker: 7
-            susTime: 300
+            susTime: 30
             targetUris: >-
               /index.html
               /favicon.ico
