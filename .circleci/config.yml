@@ -1,7 +1,7 @@
   version: 2.1
   orbs:
-    #myOrb: neocortix/loadtest@dev:alpha
-    myOrb: neocortix/loadtest@volatile
+    myOrb: neocortix/loadtest@dev:alpha
+    #myOrb: neocortix/loadtest@volatile
   
   jobs:
     build:
@@ -10,29 +10,15 @@
       steps:
         - checkout # check out the code in the project directory
         - run: echo would BUILD code here
-        - run:
-            name: checking for required python version
-            command: |
-                targetVersion="3.6"
-                errMsg="python $targetVersion is not available in this environment"
 
-                if ! hash python3; then
-                    echo  $errMsg
-                    exit 1
-                fi
-
-                pyVersion="$(python3 -V 2>&1)"
-                echo $pyVersion
-
-                if [[ $pyVersion =~ $targetVersion ]]
-                then
-                    echo found $pyVersion
-                    exit 0
-                else
-                    echo $errMsg
-                fi
-                exit 1
-
+    badCmdJob:
+      docker:
+        - image: circleci/node:10
+      steps:
+        - myOrb/loadtest:
+            targetHostUrl: "https://codero2.neocortix.com"
+            nWorkers: 3
+            susTime: 30
     testXXX:
       docker:
         - image: circleci/python:3.6 # the primary container, where your job's commands are run
@@ -47,10 +33,12 @@
     version: 2
     build_and_test:
       jobs:
-        - build
+        #- build
+        - badCmdJob
         - myOrb/loadtest:
             requires:
-              - build
+              #- build
+              - badCmdJob
             #branch: Alpha
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 3
