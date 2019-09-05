@@ -23,8 +23,6 @@
       docker:
         - image: circleci/python:3.6
       steps:
-        - checkout # check out the code in the project directory
-
         - myOrb/loadtest:
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 3
