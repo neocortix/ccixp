@@ -1,7 +1,7 @@
   version: 2.1
   orbs:
-    myOrb: neocortix/loadtest@dev:alpha
-    #myOrb: neocortix/loadtest@volatile
+    #myOrb: neocortix/loadtest@dev:alpha
+    myOrb: neocortix/loadtest@volatile
   
   jobs:
     build:
@@ -32,12 +32,12 @@
     build_and_test:
       jobs:
         #- build
-        - goodCmdJob
+        #- goodCmdJob
         #- badCmdJob
         - myOrb/loadtest:
             requires:
               #- build
-              - goodCmdJob
+              #- goodCmdJob
               #- badCmdJob
             #branch: Alpha
             targetHostUrl: "https://codero2.neocortix.com"
