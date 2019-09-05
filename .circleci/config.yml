@@ -31,12 +31,12 @@
     version: 2
     build_and_test:
       jobs:
-        #- build
+        - build
         #- goodCmdJob
         #- badCmdJob
         - myOrb/loadtest:
-            #requires:
-              #- build
+            requires:
+              - build
               #- goodCmdJob
               #- badCmdJob
             #branch: Alpha
