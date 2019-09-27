@@ -18,7 +18,7 @@
         - myOrb/loadtest:
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 3
-            susTime: 30
+            susTime: 60
     goodCmdJob:
       docker:
         - image: circleci/python:3.6
@@ -26,7 +26,7 @@
         - myOrb/loadtest:
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 3
-            susTime: 30
+            susTime: 60
   workflows:
     version: 2
     build_and_test:
@@ -46,8 +46,8 @@
             regions: >-
               north-america russia-ukraine-belarus
             usersPerWorker: 7
-            susTime: 30
+            susTime: 60
             targetUris: >-
               /index.html
               /favicon.ico
-
+            ncs_auth_token: NCS_AUTH_TOKEN
