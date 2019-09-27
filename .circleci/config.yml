@@ -50,4 +50,4 @@
             targetUris: >-
               /index.html
               /favicon.ico
-            ncs_auth_token: NCS_AUTH_TOKEN
+            ncs_auth_token: GOOD_AUTH_TOKEN
