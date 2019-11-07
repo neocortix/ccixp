@@ -1,7 +1,7 @@
   version: 2.1
   orbs:
-    myOrb: neocortix/loadtest@dev:alpha
-    #myOrb: neocortix/loadtest@volatile
+    #myOrb: neocortix/loadtest@dev:alpha
+    myOrb: neocortix/loadtest@volatile
   
   jobs:
     build:
@@ -41,12 +41,12 @@
               #- badCmdJob
             #branch: Alpha
             targetHostUrl: "https://codero2.neocortix.com"
-            nWorkers: 3
+            nWorkers: 50
             rampUpRate: "2"
             regions: >-
               north-america russia-ukraine-belarus
             usersPerWorker: 7
-            susTime: 60
+            susTime: 120
             targetUris: >-
               /index.html
               /favicon.ico
