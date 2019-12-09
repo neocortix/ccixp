@@ -43,6 +43,7 @@
             targetHostUrl: "https://codero2.neocortix.com"
             nWorkers: 50
             rampUpRate: "2"
+            reqMsprMean: 300
             regions: >-
               north-america russia-ukraine-belarus
             usersPerWorker: 7
