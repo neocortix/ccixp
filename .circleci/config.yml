@@ -41,7 +41,7 @@
               #- badCmdJob
             #branch: Alpha
             targetHostUrl: "https://codero2.neocortix.com"
-            nWorkers: 51
+            nWorkers: 50
             rampUpRate: "2"
             reqMsprMean: 300
             regions: >-
